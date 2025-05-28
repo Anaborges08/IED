@@ -26,7 +26,7 @@ def atender_tarefa(): #Cria uma função chamada atender_tarefa
         print("Nenhuma tarefa para atender.\n") # Informa que não há tarefas para atender
 
 def mostrar_tarefas(): #Cria uma função chamada mostrar_tarefas
-    print("\n📋 Lista de Tarefas:") # Imprime um título para a lista de tarefas
+    print("\n Lista de Tarefas:") # Imprime um título para a lista de tarefas
     for i, t in enumerate(tarefas): # Itera sobre a lista tarefas, obtendo o índice e o valor
         print(f"{i + 1}. {t}") #Exibe cada tarefa com numeração a partir de 1
     print() #Insere um espaço em branco para melhorar a formatação
@@ -35,34 +35,29 @@ while True: #Mantém o programa em execução até o usuário escolher sair
 
     # Mostra as opções disponíveis para o usuário:
 
-    print("1. Adicionar Tarefa")
-    print("2. Desfazer Última Tarefa")
-    print("3. Atender Tarefa (modo fila)")
-    print("4. Mostrar Tarefas")
-    print("5. Sair")
+    print("1. Adicionar Tarefa") #Mostra a opção "adicionar tarefa" usando o 1
+    print("2. Desfazer Última Tarefa") #Mostra a opção "desfazer ultima tarefa" usando o 2
+    print("3. Atender Tarefa (modo fila)") #mostra a opção "atender tarefa" usando o 3
+    print("4. Mostrar Tarefas") #mostra a opção "mostra tarefas" usando o 4
+    print("5. Sair") #mostra a opção "sair" usando o 5
 
     opcao = input("Escolha uma opção: ") # Aguarda a entrada do usuário
 
     if opcao == '1': # Verifica se a opção é "1"
+        tarefa = input("Digite a tarefa: ") # Esta linha solicita que o usuário digite uma tarefa
+        data_de_inicio = input("Digite a data de inicio (mm/dd/aa): ") # Solicita que o usuário informe a data de início da tarefa
+        data_final = input("Digite a data final (mm/dd/aa): ") #  Solicita que o usuário informe a data final da tarefa
+        adicionar_tarefa(f'{tarefa}, Inicio: ({data_de_inicio}) - Fim: ({data_final})') # Chama uma função chamada adicionar_tarefa() e passa como argumento uma string formatada contendo a tarefa e suas datas
 
-        # Recebe a descrição e as datas de início e fim
-
-        tarefa = input("Digite a tarefa: ") 
-        data_de_inicio = input("Digite a data de inicio (mm/dd/aa): ")
-        data_final = input("Digite a data final (mm/dd/aa): ")
-        adicionar_tarefa(f'{tarefa}, Inicio: ({data_de_inicio}) - Fim: ({data_final})')
-
-        # Recebe a descrição e as datas de início e fim
-
-    elif opcao == '2':
-        desfazer_ultima_tarefa()
-    elif opcao == '3':
-        atender_tarefa()
-    elif opcao == '4':
-        mostrar_tarefas()
-    elif opcao == '5':
-        print("Saindo do programa...")
-        break
+    elif opcao == '2': #Verifica se a variável opcao tem o valor '2'
+        desfazer_ultima_tarefa() # Chama a função desfazer_ultima_tarefa()
+    elif opcao == '3': #  Verifica se o valor da variável opcao é '3'
+        atender_tarefa() # chama a função atender tarefa()
+    elif opcao == '4': # verifica se o valor da variavel apção é '4'
+        mostrar_tarefas() # chama a função mostrar tarefas()
+    elif opcao == '5': #verifica se o valor da variavel apção é '5'
+        print("Saindo do programa...") # O comando print() exibe a mensagem "Saindo do programa..." no console
+        break # O comando print() exibe a mensagem "Saindo do programa..." no console
     else:
         print("Opção inválida!\n")
 
